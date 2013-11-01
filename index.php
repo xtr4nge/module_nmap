@@ -115,7 +115,7 @@ $action = $_GET["action"];
 // DELETE LOG
 if ($logfile != "" and $action == "delete") {
     $exec = "rm ".$mod_logs_history.$logfile.".log";
-    exec("/FruityWifi/www/bin/danger \"" . $exec . "\"", $dump);
+    exec("/usr/share/FruityWifi/bin/danger \"" . $exec . "\"", $dump);
 }
 
 ?>
