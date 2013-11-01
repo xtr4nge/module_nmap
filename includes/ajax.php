@@ -45,7 +45,7 @@ if ($target == "") {
 $exec = "/usr/bin/nmap -sS $target -p1-1024";
 $exec = "/usr/bin/nmap -sS $target -p1-1024 -oN logs/".gmdate("Ymd-H-i-s").".log";
 
-exec("../../../bin/danger \"" . $exec . "\"", $dump);
+exec("/usr/share/FruityWifi/bin/danger \"" . $exec . "\"", $dump);
 //$dump = implode("\n",$dump);
 
 
