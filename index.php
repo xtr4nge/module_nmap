@@ -1,19 +1,19 @@
 <? 
 /*
-	Copyright (C) 2013-2014  xtr4nge [_AT_] gmail.com
+    Copyright (C) 2013-2014 xtr4nge [_AT_] gmail.com
 
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */ 
 ?>
 <!DOCTYPE HTML>
@@ -98,8 +98,8 @@ function OnChangeTarget (obj) {
 <body>
 
 <?
-include "_info_.php";
 include "../../config/config.php";
+include "_info_.php";
 include "../../login_check.php";
 include "../../functions.php";
 
@@ -115,7 +115,8 @@ $action = $_GET["action"];
 // DELETE LOG
 if ($logfile != "" and $action == "delete") {
     $exec = "rm ".$mod_logs_history.$logfile.".log";
-    exec("/usr/share/FruityWifi/bin/danger \"" . $exec . "\"", $dump);
+    //exec("$bin_danger \"" . $exec . "\"", $dump); //DEPRECATED
+    exec_fruitywifi($exec);
 }
 
 ?>
@@ -141,19 +142,19 @@ if ($logfile != "" and $action == "delete") {
         <div id="action-1">
             Target: <input class="ui-widget" type="text" name="target" id="target" style="width:200px" onchange="OnChangeTarget(1)" onkeypress="OnChangeTarget(1)">
             <select id="scan_type" onchange="OnChangeType(this)">
-			<option value=0>Default</option>
-			<option value=1>Intense scan</option>
-			<option value=2>Ping scan</option>
-			<option value=3>Quick scan</option>
-			<option value=4>Quick traceroute</option>
+		<option value=0>Default</option>
+		<option value=1>Intense scan</option>
+		<option value=2>Ping scan</option>
+		<option value=3>Quick scan</option>
+		<option value=4>Quick traceroute</option>
         </select>
         </div>
     </div>
 
     <div id="command" class="ui-widget module" style="width:100%;padding-top:4px; padding-bottom:4px;">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp 
-            <input class="ui-widget" type="text" name="command" id="command" value="" style="width:200px">
-            <input type="submit" name="submit" id="submit" value="Scan" class="ui-widget">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp 
+	<input class="ui-widget" type="text" name="command" id="command" value="" style="width:200px">
+	<input type="submit" name="submit" id="submit" value="Scan" class="ui-widget">
     </div>
 </form>
 
